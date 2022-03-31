@@ -4,11 +4,12 @@ Draw a path using a lottie animation with the python framework tornado
 ## INSTALLATION
 
 1. Install Python Virtualenv 
+
 ```bash
 $ python -m venv .venv
 ```
 
-2. Activate Virtualenv 
+2. Activate Python Virtualenv 
 
 ```bash
 $ source .ven/bin/activate
