@@ -31,7 +31,7 @@ points = [
 class ImageHandler(RequestHandler):
     
     def get(self, art):
-        background_image = objects.assets.Image().load("./images/mappy.jpg")
+        background_image = objects.assets.Image().load("./static/images/mappy.jpg")
         an = objects.Animation(180)
         an.assets.append(background_image)
 
@@ -57,7 +57,7 @@ class ImageHandler(RequestHandler):
         group.add_shape(objects.Stroke(Color(0, 1, 0), 20))
 
         # print(an.to_dict())
-        script.script_main(an, path=".", basename=art, formats=["json"])
+        script.script_main(an, path="./static/", basename=art, formats=["json"])
        
         
         
@@ -79,7 +79,7 @@ class App(Application):
             "debug": True,
         }
         
-        tornado.web.Application.__init__(self, handlers)
+        tornado.web.Application.__init__(self, handlers, **settings)
         
 
 def main():
