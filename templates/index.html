@@ -13,10 +13,18 @@
 
 <body>
 
-  <div id="bm" style="width:1067px;height:600px"> </div>
+  <!-- <div id="bm" style="width:1067px;height:600px"> </div> -->
 
   <!-- Scripts -->
-  <script src="/node_modules/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+  <script src="{{ static_url('node_modules/@lottiefiles/lottie-player/dist/lottie-player.js')}}"></script>
+  <lottie-player 
+    src="{{ static_url('data.json')}}"  
+    background="transparent"  
+    speed="1"  
+    style="width: 900px; height: 700px;"  
+    loop controls autoplay>
+  
+  </lottie-player>
 </body>
 
 </html>
