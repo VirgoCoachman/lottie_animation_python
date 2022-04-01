@@ -16,21 +16,7 @@
   <div id="bm" style="width:1067px;height:600px"> </div>
 
   <!-- Scripts -->
-  <script src="{{ static_url('scripts/bodymovin.js')}}"></script>
-  <script>
-    var animation = bodymovin.loadAnimation({
-      container: document.getElementById('bm'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: '{{ static_url("example1.json")}}',
-      rendererSettings: {
-        scaleMode: 'Scale',
-        progressiveLoad: false, // Boolean, only svg renderer, loads dom elements when needed. Might speed up initialization for large number of elements.
-        hideOnTransparent: true
-      }
-    })
-  </script>
+  <script src="/node_modules/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
 </body>
 
 </html>
