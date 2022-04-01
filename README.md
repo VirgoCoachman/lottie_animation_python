@@ -3,35 +3,35 @@ Draw a path using a lottie animation with the python framework tornado
 
 ## INSTALLATION
 
-1. Install Python Virtualenv 
+1. ### Install Python Virtualenv 
 
 ```bash
 $ python -m venv .venv
 ```
 
-2. Activate Python Virtualenv 
+2. ### Activate Python Virtualenv 
 
 ```bash
 $ source .ven/bin/activate
 ```
-3. Update pip to its latest version 
+3. ### Update pip to its latest version 
 
 ```bash
 $ python -m pip install --upgrade pip
 ```
 
-4. Install python dependencies from requirements.txt file
+4. ### Install python dependencies from requirements.txt file
 
 ```bash
 $ pip install -r requirements.txt
 ```
-5. Install lottie-player
+5. ### Install lottie-player
 
-### Documentation (lottie-player)
+#### Documentation (lottie-player)
 
 For full documentation, visit [docs.lottiefiles.com/lottie-player](https://docs.lottiefiles.com/lottie-player/)
 
-### Installation
+#### Installation
 
 #### In HTML, import from CDN or from the local Installation:
 
@@ -77,9 +77,9 @@ npm install --save @lottiefiles/lottie-player
 import "@lottiefiles/lottie-player";
 ```
 
-## Usage
+### Usage
 
-### Lottie-Player
+#### Lottie-Player
 
 Add the element `lottie-player` and set the `src` property to a URL pointing to a valid Bodymovin JSON.
 
@@ -114,7 +114,7 @@ player.addEventListener("rendered", (e) => {
 });
 ```
 
-### TGS-Player
+#### TGS-Player
 
 Add the element `tgs-player` and set the `src` property to a URL pointing to a valid TGS JSON.
 
@@ -123,7 +123,7 @@ Add the element `tgs-player` and set the `src` property to a URL pointing to a v
 </tgs-player>
 ```
 
-### ReactJS & VueJS
+#### ReactJS & VueJS
 
 Import the player either as
 
@@ -150,7 +150,7 @@ Use as follows
 ></lottie-player>
 ```
 
-### Typescript ReactJS
+#### Typescript ReactJS
 
 Import the player either as
 
@@ -187,7 +187,7 @@ declare namespace JSX {
 }
 ```
 
-### NuxtJS
+#### NuxtJS
 
 The process for NuxtJS is slightly different. Create a lottie-player.js file in project root inside a folder named 'plugins'. Add the code below to the file
 
@@ -217,7 +217,7 @@ You would then be able to use the player as follows inside any component
 
 This is because the player script needs to be rendered on the browser/client side and we must configure nuxtjs to load the script on the client side only.
 
-### NextJS
+#### NextJS
 
 The process to import in NextJS is similar to NuxtJS in the sense that on SSR mode, the library must be declared as a client side module. To do this, import the library within a react useEffect hook.
 
@@ -261,12 +261,12 @@ declare namespace JSX {
 Full documentation on player properties, methods, events and styling for the Lottie-player are available [here](https://docs.lottiefiles.com/lottie-player).
 
 
-## Community & Support
+### Community & Support
 
 - [Github issues.](https://github.com/LottieFiles/lottie-player/issues) For bugs and errors you encounter using this player.
 - [Discord.](https://lottiefiles.com/discord) For hanging out with the community and sharing your awesome Lottie animations!
 
-## Our other Lottie related libraries
+### Other Lottie related libraries
 
 <table style="table-layout:fixed; white-space: nowrap;">
   <tr>
@@ -332,3 +332,62 @@ Full documentation on player properties, methods, events and styling for the Lot
 
 </table>
 
+6. ### If meet some issues when installing 
+
+#### For example if node_modules folder is not created after npm installing command
+1. Initialise the npm package
+
+```bash
+$ npm init
+```
+2. Follow instructions to populate the package.json file (You can press "ENTER" to take default values)
+
+3. Add lottie-player dependency 
+
+```json
+"dependencies": {
+    "@lottiefiles/lottie-player": "^1.5.6"
+}
+```
+4. See an example below
+
+```json
+{
+  "name": "lottie_animation_python",
+  "version": "1.0.0",
+  "description": "Draw a path using a lottie animation with the python framework tornado",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VirgoCoachman/lottie_animation_python.git"
+  },
+  "author": "VirgoCoachman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VirgoCoachman/lottie_animation_python/issues"
+  },
+  "homepage": "https://github.com/VirgoCoachman/lottie_animation_python#readme",
+
+
+  "dependencies": {
+    "@lottiefiles/lottie-player": "^1.5.6"
+  }
+
+}
+```
+
+5. Type the npm install command 
+
+```bash
+$ npm install
+```
+
+7. ### Run the server 
+
+```bash
+$ python tornado_server
+```
+8. [test it here](http://localhost:5000)
