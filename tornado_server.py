@@ -58,7 +58,8 @@ class ImageHandler(RequestHandler):
 
         # print(an.to_dict())
         script.script_main(an, path="./static/", basename=art, formats=["json"])
-       
+        
+        self.render("index.html")
         
         
 class LottiePlayerHandler(RequestHandler):
