@@ -22,11 +22,15 @@
   <lottie-player 
     src="{{ static_url('data.json')}}"  
     background="transparent"  
-    speed="1"  
+    speed="0.1"  
     style="width: 900px; height: 700px;"  
     loop controls autoplay>
   
   </lottie-player>
+
+  <form action="/follow_path/data" method="get">
+    <button type="submit" class="button">CLICK ME TO FOLLOW THE PATH</button>
+  </form>
 </body>
 
 </html>

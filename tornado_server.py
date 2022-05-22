@@ -4,6 +4,7 @@ import os
 
 from lottie.utils import script
 from lottie import objects
+from lottie.utils.animation import follow_path
 from lottie.utils import animation as anutils
 from lottie import Point, Color
 
@@ -26,6 +27,54 @@ points = [
     (60, 200),
     (380, 80),
 ]
+
+DUREE = 180
+
+
+class FollowPathHandler(RequestHandler):
+    def get(self, art):
+        background_image = objects.assets.Image().load("./static/images/mappy.jpg")
+        an = objects.Animation(DUREE)
+        an.assets.append(background_image)
+
+        layer = objects.ShapeLayer()
+        # layer = objects.ImageLayer(background_image.id)
+        
+        an.add_layer(layer)
+        an.add_layer(objects.ImageLayer(background_image.id))
+
+        group = layer.add_shape(objects.Group())
+        ball = group.add_shape(objects.Ellipse())
+        ball.size.value = Point(20, 20)
+        
+        les_points = list(points)
+        sequence = 3 * int(DUREE / len(les_points) - 1)
+
+        group.add_shape(objects.Fill(Color(1, 0, 0)))
+
+        group = layer.add_shape(objects.Group())
+        bez = group.add_shape(objects.Path())
+        
+        while len(les_points) > 0:
+            point = les_points.pop()
+            bez.shape.value.add_point(Point(point[0], point[1]))
+            
+
+        # sh = anutils.generate_path_segment(bez.shape.value, 0, 180, 60, 180, 60, True)
+        # group.add_shape(sh)
+        group.add_shape(objects.Stroke(Color(0, 1, 0), 10))
+        
+        i = 0 - sequence
+        while i < DUREE:
+            i = i + sequence
+            follow_path(ball.position, bez.shape.value, 0, 60, 30, True, Point(0, 0))
+            follow_path(ball.position, bez.shape.value, 60, 120, 30, True, Point(0, 0))
+            follow_path(ball.position, bez.shape.value, 120, 180, 30, True, Point(0, 0))
+
+        # print(an.to_dict())
+        script.script_main(an, path="./static/", basename=art, formats=["json"])
+        
+        self.render("index.html")
 
 
 class ImageHandler(RequestHandler):
@@ -71,6 +120,7 @@ class App(Application):
     def __init__(self):
         handlers = [
             url(r"/img/(?P<art>.+)$", ImageHandler, name="image"),
+            url(r"/follow_path/(?P<art>.+)$", FollowPathHandler, name="follow_path"),
             url(r"/", LottiePlayerHandler, name="lottie")
         ]
         
