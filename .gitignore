@@ -131,3 +131,4 @@ dmypy.json
 *.json
 
 static/node_modules/*
+Pipfile*
