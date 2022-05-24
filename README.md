@@ -3,27 +3,32 @@ Draw a path using a lottie animation with the python framework tornado
 
 ## INSTALLATION
 
-1. ### Install Python Virtualenv 
+1. ### Install Python 3.10 (using pyenv) if not installed
 
 ```bash
-$ python -m venv .venv
+$ pyenv --install 3.10.4
 ```
 
-2. ### Activate Python Virtualenv 
+2. ### Activate python 3.10.4 as the main python version
 
 ```bash
-$ source .ven/bin/activate
+$ pyenv global 3.10.4
 ```
-3. ### Update pip to its latest version 
+3. ### Create a virtual environment and install python 3.10.4 within 
 
 ```bash
-$ python -m pip install --upgrade pip
+$ pipenv --python 3.10.4
+```
+3. ### Activate the virtual environment
+
+```bash
+$ pipenv shell
 ```
 
 4. ### Install python dependencies from requirements.txt file
 
 ```bash
-$ pip install -r requirements.txt
+$ pipenv install -r requirements.txt
 ```
 5. ### Install lottie-player
 
